@@ -1,0 +1,11 @@
+site-location-time:
+  version: VERSION
+  css:
+    theme:
+      css/site-location-time.css: {}
+  js:
+    js/site-location-time.js: {}
+  dependencies:
+  - core/jquery
+  - core/drupalSettings
+  - core/drupal

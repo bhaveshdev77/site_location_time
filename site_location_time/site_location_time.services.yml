@@ -1,0 +1,4 @@
+services:
+  site_location_time.manager:
+    class: Drupal\site_location_time\SiteLocationTimeManager
+    arguments: ["@string_translation", "@config.factory", "@date.formatter", "@plugin.manager.block" ]

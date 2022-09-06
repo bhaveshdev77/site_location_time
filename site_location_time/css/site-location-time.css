@@ -1,0 +1,8 @@
+/**
+ ** Styling for site_location_time.
+ */
+
+.wrap-location-time address {
+    display: inline;
+    font-style: normal;
+}

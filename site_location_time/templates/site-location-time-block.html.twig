@@ -1,0 +1,16 @@
+<div{{ attributes }}> 
+
+    {{ title_prefix }}
+    {% if label %}
+        <h2{{ title_attributes }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+
+    <div class="wrap-location-time">
+        <p class="site-location-container">Site Location:  <strong>{{ "%s, %s"|format( data["city"], data["country"]) }}</strong> </p>
+        <p class="site-location-time-refresh">Current Time: <strong>{{ data["datetime"] }}</strong></p>
+    </div>
+
+</div>
+
+{{ attach_library('site_location_time/site-location-time') }}

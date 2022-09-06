@@ -1,0 +1,6 @@
+site_location_time.admin_settings_form:  
+  title: 'Configure Country and Timezone'  
+  route_name: site_location_time.admin_settings_form  
+  description: 'Configure default country and timezone'  
+  parent: system.admin_config_system  
+  weight: 99  

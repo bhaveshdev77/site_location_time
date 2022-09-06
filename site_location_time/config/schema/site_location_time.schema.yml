@@ -1,0 +1,13 @@
+block.settings.site_location_time_block:
+  type: block_settings
+  label: 'Site Location Time block settings'
+  mapping:
+    country:
+      type: string
+      label: 'Country'
+    city:
+      type: string
+      label: 'City'
+    timezone:
+      type: string
+      label: 'Timezone'  

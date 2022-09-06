@@ -1,0 +1,47 @@
+<?php
+/**
+ * @file
+ * Site Location & Date and Time Module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function site_location_time_help($route_name, RouteMatchInterface $route_match) {
+  if ($route_name == 'help.page.site_location_time') {
+    $output = '';
+    $output .= '<h3>' . t('About') . '</h3>';
+    $output .= '<p>' . t('This module will help to show location and time of site.') . '</p>';
+    return $output;
+  }
+}
+
+/**
+ * Implementes hook_page_attachments_alter().
+ */
+function site_location_time_page_attachments_alter(&$page){ 
+    $page['#attached']['library'][] = 'site_location_time/site-location-time';
+} 
+
+/**
+  * Implements hook_theme().
+  */
+function site_location_time_theme() {
+    return [
+        'site_location_time_block' => [
+            'variables' => [
+            'data' => [
+                'country' => NULL,
+                'city' => NULL,
+                'timezone' => NULL,
+                'datetime' => NULL,
+                'datetimefortag' => NULL,
+              ],
+            ],
+        ],
+    ];
+}
+
+ 

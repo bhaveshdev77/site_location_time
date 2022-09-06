@@ -1,0 +1,10 @@
+name: Site Location & Date and Time
+description: 'This module shows the location of site with date and time based on site configured timezone.'
+type: module
+package: Custom
+core_version_requirement: ^8 || ^9
+libraries:
+  - site_location_time/site-location-time
+version: '1.0'
+project: 'site_location_time'
+datestamp: 1662056474
