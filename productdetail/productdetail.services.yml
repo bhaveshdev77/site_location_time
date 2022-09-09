@@ -1,4 +1,0 @@
-services:
-  productdetail.manager:
-    class: Drupal\productdetail\ProductdetailManager
-    arguments: [ "@config.factory" ]

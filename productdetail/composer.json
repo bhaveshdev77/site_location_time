@@ -1,9 +1,0 @@
-{
-  "name": "drupal/productdetail",
-  "type": "drupal-module",
-  "description": "This module will create products content type and will render QR code in product detail page.",
-  "license": "GPL-2.0+",
-  "require": {
-      "simplesoftwareio/simple-qrcode": "~4"
-  }
-}
