@@ -1,0 +1,12 @@
+name: Products with QR Code
+description: 'This module shows the product detail page with QR code.'
+type: module
+package: Custom
+core_version_requirement: ^8 || ^9
+libraries:
+  - productdetail/productdetail
+version: '1.0'
+project: 'productdetail'
+datestamp: 1662056474
+dependencies:
+  - node

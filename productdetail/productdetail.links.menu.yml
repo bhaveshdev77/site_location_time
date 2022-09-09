@@ -1,0 +1,6 @@
+productdetail.admin_settings_form:  
+  title: 'Default QR code block settings'  
+  route_name: productdetail.admin_settings_form  
+  description: 'Default QR code block settings'  
+  parent: system.admin_config_system  
+  weight: 99  

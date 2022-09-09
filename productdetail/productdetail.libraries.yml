@@ -1,0 +1,11 @@
+productdetail:
+  version: VERSION
+  css:
+    theme:
+      css/productdetail.css: {}
+  js:
+    js/productdetail.js: {}
+  dependencies:
+  - core/jquery
+  - core/drupalSettings
+  - core/drupal

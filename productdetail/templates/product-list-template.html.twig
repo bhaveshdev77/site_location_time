@@ -1,0 +1,38 @@
+<div class="qr-product-list-wrap"> 
+    {% if data %} 
+        {% for item in data %}
+             <div class="qr-product-list-item"> 
+                    
+                    {% if item.image != "" %} 
+                            <div class="qr-content-section-image"> 
+                                    <a href="{{ item.url }}" rel="bookmark">
+                                        <img src="{{ file_url(item.image) }}" alt="{{ item.image_alt }}" title="{{ item.image_alt }}" />
+                                    </a>
+                             </div>   
+                    {% endif %}    
+                    
+                    <div class="qr-content-section"> 
+                        <h2>
+                            <a href="{{ item.url }}" rel="bookmark">{{ item.title }}</a>
+                        </h2>   
+                        <div class="qr-content-desc">
+                            {{ item.body }}
+                        </div>    
+                        <div class="qr-content-readmore">
+                            <a href="{{ item.url }}" rel="bookmark">
+                                {{ 'Read More'|t }}
+                            </a>
+                        </div>   
+                    </div> 
+                </div>    
+        {% endfor %}
+    
+    {% endif %}
+
+    {% if data|length <= 0 %}
+         <div class="qr-content-no-data">
+                {{ 'No products found.'|t }}
+         </div> 
+    {% endif %}
+
+</div>

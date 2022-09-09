@@ -1,0 +1,78 @@
+<?php
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ ** Implements hook_theme_suggestions_hook().
+ **/
+function productdetail_theme_suggestions_node(array $variables) {
+  return [
+    'node__productdetail',
+  ];
+} 
+
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function productdetail_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+
+  $node = $entity;
+  if ($node->bundle() === 'product_detail') {
+    if ($view_mode === 'full') {
+      $build['#attached']['library'][] = 'productdetail/productdetail';
+    }
+    elseif ($view_mode === 'default') {
+      $build['#attached']['library'][] = 'productdetail/productdetail';
+    }
+  }
+}
+ 
+function productdetail_preprocess_node(&$variables) {
+
+  // Load QR code block in product detail page
+  if ($variables['node']->getType() == "product_detail") {
+
+    $block_manager = \Drupal::service('plugin.manager.block');
+    $config = [];
+    $plugin_block = $block_manager->createInstance('productdetail_block', $config);
+    $render = $plugin_block->build();  
+    
+    $config_block_options = \Drupal::config('productdetail.adminsettings')->get('block_options');
+    $qr_code_content = "";  
+    if(  $config_block_options != null && $config_block_options == "no" ) 
+      $qr_code_content = "";  
+    else
+       $qr_code_content =   \Drupal::service('renderer')->renderRoot($render);  
+      
+    $variables['qr_code_block'] = $qr_code_content; 
+
+  }
+
+}
+
+/**
+  * Implements hook_theme().
+  */
+function productdetail_theme() {
+   
+   return [
+        'productdetail_block' => [
+            'variables' => [
+              'data' => [
+                'block_title' => "",
+                'block_desc' => "",
+                'block_qrcode' => ""
+              ]
+            ]
+        ],
+        'node__product_detail' => [
+            'template' => 'node--product-detail',
+            'base hook' => 'node' 
+         ],
+         'product_list_template' => [
+            'variables' => [
+              'data' => []
+            ]
+         ],
+    ];
+}
